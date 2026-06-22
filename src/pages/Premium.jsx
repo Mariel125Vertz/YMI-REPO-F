@@ -47,7 +47,7 @@ const Premium = () => {
 
   const handlePremium = async () => {
     try {
-      const res = await fetch("${import.meta.env.VITE_API_URL}/crear-preferencia", {
+      const res =await fetch(`${import.meta.env.VITE_API_URL}/crear-preferencia`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id_usuario: localStorage.getItem("id_usuario") })
