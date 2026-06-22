@@ -18,7 +18,7 @@ const Premium = () => {
     if (status === 'success') {
       setActivando(true);
 
-      fetch(`http://localhost:8000/activar-premium/${id_usuario}`, { method: 'POST' })
+      fetch(`${import.meta.env.VITE_API_URL}/activar-premium/${id_usuario}`, { method: 'POST' })
         .then(r => r.json())
         .then(data => {
           setActivando(false);
@@ -32,7 +32,7 @@ const Premium = () => {
         .catch(() => setActivando(false));
 
     } else {
-      fetch(`http://localhost:8000/es-premium/${id_usuario}`)
+      fetch(`${import.meta.env.VITE_API_URL}/es-premium/${id_usuario}`)
         .then(r => r.json())
         .then(data => {
           setEsPremium(data.es_premium);
@@ -47,7 +47,7 @@ const Premium = () => {
 
   const handlePremium = async () => {
     try {
-      const res = await fetch("http://localhost:8000/crear-preferencia", {
+      const res = await fetch("${import.meta.env.VITE_API_URL}/crear-preferencia", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id_usuario: localStorage.getItem("id_usuario") })

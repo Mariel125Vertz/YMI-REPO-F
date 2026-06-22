@@ -12,7 +12,7 @@ const Register = () => {
     setLoading(true);
 
     try {
-      const respuesta = await fetch('http://localhost:8000/registro', {
+      const respuesta = await fetch('${import.meta.env.VITE_API_URL}/registro', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })

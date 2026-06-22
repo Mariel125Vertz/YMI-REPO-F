@@ -37,7 +37,7 @@ const Tareas = () => {
     if (premiumLocal === '1') {
       setEsPremium(true);
     } else {
-      fetch(`http://localhost:8000/es-premium/${id_usuario}`)
+      fetch(`${import.meta.env.VITE_API_URL}/es-premium/${id_usuario}`)
         .then(r => r.json())
         .then(data => {
           if (data.es_premium) {
@@ -50,7 +50,7 @@ const Tareas = () => {
 
     const obtenerTareas = async () => {
       try {
-        const respuesta = await fetch(`http://localhost:8000/tareas/${id_usuario}`);
+        const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/tareas/${id_usuario}`);
         const data = await respuesta.json();
         if (respuesta.ok) {
           setListaTareas(data.map(t => ({
@@ -90,7 +90,7 @@ const Tareas = () => {
     if (!id_usuario) return;
     setCargando(true);
     try {
-      const respuesta = await fetch(`http://localhost:8000/agregar-tarea/${id_usuario}`, {
+      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/agregar-tarea/${id_usuario}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nombre, fecha_entrega: fecha, prioridad, descripcion })
@@ -107,7 +107,7 @@ const Tareas = () => {
   const eliminarTarea = async (id_tarea) => {
     if (!window.confirm("¿Eliminar esta tarea?")) return;
     try {
-      const respuesta = await fetch(`http://localhost:8000/eliminar-tarea/${id_usuario}/${id_tarea}`, {
+      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/eliminar-tarea/${id_usuario}/${id_tarea}`, {
         method: 'DELETE'
       });
       const data = await respuesta.json();
@@ -122,7 +122,7 @@ const Tareas = () => {
     if (!tareaEditando) return;
     setCargando(true);
     try {
-      const respuesta = await fetch(`http://localhost:8000/editar-tarea/${id_usuario}/${tareaEditando.id}`, {
+      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/editar-tarea/${id_usuario}/${tareaEditando.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

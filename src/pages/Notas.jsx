@@ -27,7 +27,7 @@ const Notas = () => {
     if (premiumLocal === '1') {
       setEsPremium(true);
     } else {
-      fetch(`http://localhost:8000/es-premium/${id_usuario}`)
+      fetch(`${import.meta.env.VITE_API_URL}/es-premium/${id_usuario}`)
         .then(r => r.json())
         .then(data => {
           if (data.es_premium) {
@@ -40,7 +40,7 @@ const Notas = () => {
 
     const obtenerNotas = async () => {
       try {
-        const respuesta = await fetch(`http://localhost:8000/notas/${id_usuario}`);
+        const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/notas/${id_usuario}`);
         const data = await respuesta.json();
         if (respuesta.ok) {
           setListaNotas(data.map(n => ({
@@ -77,7 +77,7 @@ const Notas = () => {
     if (!id_usuario) return;
     setCargando(true);
     try {
-      const respuesta = await fetch(`http://localhost:8000/agregar-nota/${id_usuario}`, {
+      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/agregar-nota/${id_usuario}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ titulo, descripcion })
@@ -94,7 +94,7 @@ const Notas = () => {
   const eliminarNota = async (id_nota) => {
     if (!window.confirm("¿Eliminar esta nota?")) return;
     try {
-      const respuesta = await fetch(`http://localhost:8000/eliminar-nota/${id_usuario}/${id_nota}`, {
+      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/eliminar-nota/${id_usuario}/${id_nota}`, {
         method: 'DELETE'
       });
       const data = await respuesta.json();
@@ -109,7 +109,7 @@ const Notas = () => {
     if (!notaEditando) return;
     setCargando(true);
     try {
-      const respuesta = await fetch(`http://localhost:8000/editar-nota/${id_usuario}/${notaEditando.id}`, {
+      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/editar-nota/${id_usuario}/${notaEditando.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ titulo: editTitulo, descripcion: editDescripcion })
