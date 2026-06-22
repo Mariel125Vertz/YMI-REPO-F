@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/ESTO_NO_EXISTE.html"
+      "destination": "/frontend/index.html"
     }
   ]
 }
