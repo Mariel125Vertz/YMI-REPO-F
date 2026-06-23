@@ -165,7 +165,7 @@ const Notas = () => {
         <div className="flex items-center justify-between mb-10">
           <div>
             <p className="text-xs text-violet-500 font-semibold uppercase tracking-widest mb-1">Mis notas</p>
-            <h1 className="text-4xl font-bold text-gray-800 font-serif">No olvides nada importante</h1>
+            <h1 className="text-4xl font-bold text-gray-800 font-serif">Tus tareas :D</h1>
           </div>
           <button onClick={() => setModalAbierto(true)}
             className="flex items-center gap-2 bg-violet-600 hover:bg-violet-700 active:scale-95 transition-all text-white font-semibold px-5 py-3 rounded-xl shadow-md">
@@ -222,7 +222,7 @@ const Notas = () => {
             <form onSubmit={agregarNota} className="flex flex-col gap-4">
               <div>
                 <label className="block text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Título</label>
-                <input type="text" required placeholder="Ej. Ideas para el proyecto"
+                <input type="text" required placeholder="Nombre de la nota aqui"
                   className="w-full h-11 px-3 border border-gray-200 rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-violet-400"
                   value={titulo} onChange={(e) => setTitulo(e.target.value)} />
               </div>

@@ -248,7 +248,7 @@ const Tareas = () => {
             <form onSubmit={agregarTarea} className="flex flex-col gap-4">
               <div>
                 <label className="block text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Nombre</label>
-                <input type="text" required placeholder="Ej. Entregar proyecto final"
+                <input type="text" required placeholder="Nombre de la tarea aqui"
                   className="w-full h-11 px-3 border border-gray-200 rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-violet-400"
                   value={nombre} onChange={(e) => setNombre(e.target.value)} />
               </div>
