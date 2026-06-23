@@ -22,7 +22,6 @@ const Notas = () => {
   useEffect(() => {
     if (!id_usuario) { navigate('/loging'); return; }
 
-    // Verificar si es premium (primero desde localStorage, luego desde la API)
     const premiumLocal = localStorage.getItem('es_premium');
     if (premiumLocal === '1') {
       setEsPremium(true);
@@ -127,7 +126,7 @@ const Notas = () => {
     } catch { setCargando(false); alert("Error de conexión"); }
   };
 
-  // ── Descarga PDF de una sola nota (solo premium) ─────────────────────────
+  
   const descargarNotaPDF = (nota) => {
     if (!esPremium) {
       navigate('/premium');
@@ -165,7 +164,7 @@ const Notas = () => {
         <div className="flex items-center justify-between mb-10">
           <div>
             <p className="text-xs text-violet-500 font-semibold uppercase tracking-widest mb-1">Mis notas</p>
-            <h1 className="text-4xl font-bold text-gray-800 font-serif">Tus tareas :D</h1>
+            <h1 className="text-4xl font-bold text-gray-800 font-serif">Inspirate:D</h1>
           </div>
           <button onClick={() => setModalAbierto(true)}
             className="flex items-center gap-2 bg-violet-600 hover:bg-violet-700 active:scale-95 transition-all text-white font-semibold px-5 py-3 rounded-xl shadow-md">

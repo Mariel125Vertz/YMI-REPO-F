@@ -239,7 +239,7 @@ const Tareas = () => {
         )}
       </div>
 
-      {/* Modal nueva tarea */}
+      
       {modalAbierto && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-7 relative">
@@ -286,7 +286,7 @@ const Tareas = () => {
         </div>
       )}
 
-      {/* Modal editar tarea */}
+    
       {modalEditar && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-7 relative">
