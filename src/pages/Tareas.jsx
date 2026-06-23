@@ -184,7 +184,7 @@ const Tareas = () => {
       <div className="flex-1 p-10">
         <div className="flex items-center justify-between mb-10">
           <div>
-            <p className="text-xs text-violet-500 font-semibold uppercase tracking-widest mb-1">Mis tareas</p>
+            <p className="text-xs text-pink-500 font-semibold uppercase tracking-widest mb-1">Mis tareas</p>
             <h1 className="text-4xl font-bold text-gray-800 font-serif">No olvides nada importante</h1>
           </div>
           <button onClick={() => setModalAbierto(true)}
